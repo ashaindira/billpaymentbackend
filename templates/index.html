@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill Payment Reminder</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Bill Payment Reminder</h1>
+    </header>
+
+    <main>
+        <section id="add-bill">
+            <h2>Add New Bill</h2>
+            <form id="bill-form">
+                <label for="bill-name">Bill Name:</label>
+                <input type="text" id="bill-name" placeholder="e.g., Electricity Bill" required>
+
+                <label for="due-date">Due Date:</label>
+                <input type="date" id="due-date" required>
+
+                <label for="category">Category:</label>
+                <select id="category">
+                    <option value="subscriptions">Subscriptions</option>
+                    <option value="rent">Rent</option>
+                    <option value="utility">Utility</option>
+                </select>
+
+                <button type="submit">Add Bill</button>
+            </form>
+        </section>
+
+        <section id="voice-input">
+            <h2>Set Reminder Using Voice</h2>
+            <button id="start-recording">Start Voice Input</button>
+            <p id="recording-status">Click the button to speak your reminder.</p>
+        </section>
+
+        <section id="bill-list">
+            <h2>Your Bills</h2>
+            <ul id="bills"></ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Bill Payment Reminder App</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
