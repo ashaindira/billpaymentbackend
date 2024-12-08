@@ -4,10 +4,16 @@ from flask_sqlalchemy import SQLAlchemy
 from apscheduler.schedulers.background import BackgroundScheduler
 from datetime import datetime, timedelta
 from twilio.rest import Client
+import os
 
 
 app = Flask(__name__)
 
+# Use PORT environment variable provided by Render
+port = int(os.environ.get("PORT", 5000))
+
+# Ensure app listens on 0.0.0.0 to be accessible from outside
+app.run(host='0.0.0.0', port=port)
 
 @app.route('/')
 def home():
